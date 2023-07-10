@@ -17,6 +17,7 @@ const Theme = () => {
 
     setFont(value as string);
     setCurrentFont(text as string);
+    setDropdownOpen(false);
   };
 
   const handleChangeTheme = () => {
