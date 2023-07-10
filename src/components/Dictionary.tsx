@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import useWord from "../hooks/useWord";
 import Error from "./Error";
 import Layout from "./Layout";
@@ -8,10 +7,6 @@ import { MdOutlineScreenSearchDesktop } from "react-icons/md";
 
 const Dictionary = () => {
   const { wordData, requestStatus } = useWord();
-
-  useEffect(() => {
-    console.log(wordData);
-  }, [wordData]);
 
   return (
     <div className="text-textColor">

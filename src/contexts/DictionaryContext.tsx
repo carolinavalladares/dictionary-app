@@ -1,10 +1,7 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
-import { getWord } from "../utils/requests";
 import { WordDataType } from "../types/api";
 
 interface DictionaryContextType {
-  // contextWord: string;
-  // setContextWord: React.Dispatch<string>;
   fetchWordData: (word: string) => void;
   wordData: WordDataType;
   requestStatus: string;
@@ -18,7 +15,6 @@ interface Props {
 }
 
 export default function DictionaryContextProvider({ children }: Props) {
-  // const [contextWord, setContextWord] = useState<string>("");
   const [wordData, setWordData] = useState<WordDataType>({} as WordDataType);
   const [requestStatus, setRequestStatus] = useState("success");
   const [words, setWords] = useState<string[]>([]);
@@ -52,9 +48,6 @@ export default function DictionaryContextProvider({ children }: Props) {
     );
 
     const data = await resp.json();
-
-    console.log(resp);
-    console.log(data);
 
     if (resp.status > 299) {
       setRequestStatus("error");
