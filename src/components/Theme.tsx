@@ -45,7 +45,7 @@ const Theme = () => {
             <li>
               <button
                 onClick={(e) => handleChangeFont(e)}
-                className="font-serif outline-0 outline-none"
+                className="font-serif outline-0 outline-none w-full text-left"
                 value="serif"
               >
                 Serif
@@ -54,7 +54,7 @@ const Theme = () => {
             <li>
               <button
                 onClick={(e) => handleChangeFont(e)}
-                className="font-sansSerif outline-0 outline-none"
+                className="font-sansSerif outline-0 outline-none w-full text-left"
                 value="sans-serif"
               >
                 Sans-serif
@@ -63,7 +63,7 @@ const Theme = () => {
             <li>
               <button
                 onClick={(e) => handleChangeFont(e)}
-                className="font-monospace outline-0 outline-none "
+                className="font-monospace outline-0 outline-none  w-full text-left"
                 value="monospace"
               >
                 Monospace
