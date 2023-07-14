@@ -57,6 +57,8 @@ export default function ThemeContextProvider({ children }: Props) {
       "dictionaryTheme",
       JSON.stringify({ font, isDarkTheme })
     );
+
+    console.log(font);
   };
 
   return (

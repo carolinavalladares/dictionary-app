@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useTheme from "../hooks/useTheme";
 import { IoIosArrowDown } from "react-icons/io";
 import { BsSun, BsMoon } from "react-icons/bs";
@@ -7,6 +7,14 @@ const Theme = () => {
   const { setFont, setIsDarkTheme, isDarkTheme } = useTheme();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [currentFont, setCurrentFont] = useState("Serif");
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("dictionaryTheme");
+
+    if (storedTheme) {
+      setCurrentFont(JSON.parse(storedTheme).font as string);
+    }
+  }, []);
 
   const handleChangeFont = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -30,7 +38,7 @@ const Theme = () => {
       <div className="relative z-50">
         <div
           onClick={() => setDropdownOpen(!dropdownOpen)}
-          className="flex items-center gap-5 justify-between cursor-pointer w-32"
+          className="flex items-center gap-5 justify-between cursor-pointer w-32 capitalize"
         >
           <span>{currentFont}</span>
           <IoIosArrowDown

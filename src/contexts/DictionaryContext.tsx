@@ -5,7 +5,6 @@ interface DictionaryContextType {
   fetchWordData: (word: string) => void;
   wordData: WordDataType;
   requestStatus: string;
-  words: string[];
 }
 
 export const DictionaryContext = createContext({} as DictionaryContextType);
@@ -17,21 +16,6 @@ interface Props {
 export default function DictionaryContextProvider({ children }: Props) {
   const [wordData, setWordData] = useState<WordDataType>({} as WordDataType);
   const [requestStatus, setRequestStatus] = useState("success");
-  const [words, setWords] = useState<string[]>([]);
-
-  useEffect(() => {
-    getWords();
-  });
-
-  async function getWords() {
-    const req = await fetch("./words.json");
-
-    const data = await req.json();
-
-    const wordsArr = data.words.split(" ");
-
-    setWords(wordsArr);
-  }
 
   const fetchWordData = async (word: string) => {
     setRequestStatus("loading");
@@ -60,7 +44,7 @@ export default function DictionaryContextProvider({ children }: Props) {
 
   return (
     <DictionaryContext.Provider
-      value={{ requestStatus, fetchWordData, wordData, words }}
+      value={{ requestStatus, fetchWordData, wordData }}
     >
       {children}
     </DictionaryContext.Provider>

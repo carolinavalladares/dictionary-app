@@ -3,7 +3,7 @@ import useWord from "../hooks/useWord";
 import { BiSearch } from "react-icons/bi";
 
 export default function SearchBar() {
-  const { fetchWordData, words } = useWord();
+  const { fetchWordData } = useWord();
   const [word, setWord] = useState("");
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
