@@ -5,8 +5,6 @@ import { BiSearch } from "react-icons/bi";
 export default function SearchBar() {
   const { fetchWordData, words } = useWord();
   const [word, setWord] = useState("");
-  const [suggestions, setSuggestions] = useState<string[]>([]);
-  const [suggestionsOpen, setSuggestionsOpen] = useState<boolean>(false);
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,19 +19,6 @@ export default function SearchBar() {
     setWord(e.target.value);
   };
 
-  useEffect(() => {
-    const suggestionsArr = words.filter((item) => {
-      return item.includes(word) && item !== word;
-    });
-
-    setSuggestions(suggestionsArr);
-    setSuggestionsOpen(true);
-
-    if (!word) {
-      setSuggestionsOpen(false);
-    }
-  }, [word]);
-
   const handleSuggestion = (
     e: React.MouseEvent<HTMLParagraphElement, MouseEvent>
   ) => {
@@ -43,9 +28,6 @@ export default function SearchBar() {
     setWord(wordSuggestion);
 
     fetchWordData(wordSuggestion);
-
-    setSuggestionsOpen(false);
-    setSuggestions([]);
   };
 
   return (
@@ -64,25 +46,6 @@ export default function SearchBar() {
           </button>
         </div>
       </form>
-
-      {suggestions.length > 0 && suggestionsOpen ? (
-        <div className="absolute top-full left-0  w-full mt-2 p-4 shadow-md bg-componentColor200 rounded-md z-50">
-          <div>
-            {suggestions.map((suggestion, index) => {
-              return (
-                <p
-                  onClick={(e) => handleSuggestion(e)}
-                  className="cursor-pointer mb-1"
-                  key={index}
-                  id={suggestion}
-                >
-                  {suggestion}
-                </p>
-              );
-            })}
-          </div>
-        </div>
-      ) : null}
     </div>
   );
 }
