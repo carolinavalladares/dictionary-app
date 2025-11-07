@@ -6,14 +6,14 @@ import Theme from "./Theme";
 const Nav = () => {
   return (
     <header className="bg-backgroundPrimary py-4 shadow-md">
-      <div className="flex items-center justify-between max-w-3xl m-auto">
+      <div className="flex items-center justify-between max-w-3xl m-auto px-4">
         <a href="/">
           <BiBookAlt className="text-2xl text-textColor" />
         </a>
 
         <Theme />
       </div>
-      <div className="max-w-3xl m-auto flex items-center w-full mt-4">
+      <div className="max-w-3xl m-auto flex items-center w-full mt-4 px-4">
         <SearchBar />
       </div>
     </header>

@@ -17,7 +17,7 @@ const Dictionary = () => {
           ) : requestStatus == "error" ? (
             <Error />
           ) : !wordData.word ? (
-            <div className="flex items-center justify-center flex-col">
+            <div className="flex items-center justify-center flex-col text-center">
               <h2 className="text-2xl mb-4">Welcome to the Dictionary app</h2>
               <p className="text-xl mb-6">Search a word</p>
               <MdOutlineScreenSearchDesktop className="text-8xl" />

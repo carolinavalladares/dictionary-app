@@ -24,7 +24,7 @@ const Layout = ({ children }: Props) => {
     >
       <Nav />
 
-      <div className="max-w-3xl m-auto mt-7">{children}</div>
+      <div className="max-w-3xl m-auto mt-7 px-4">{children}</div>
     </div>
   );
 };
